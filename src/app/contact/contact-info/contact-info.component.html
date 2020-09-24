@@ -1,0 +1,27 @@
+ <!--Person info top area-->
+ <div class="top">
+  <span class="top-left">
+  <span *ngIf="contact.isOnline" class="online"><img src="./assets/images/contact-info-online.fw.png" alt=""></span>
+  <span class="bell"><img src="./assets/images/contact-info-bell.fw.png" alt=""></span></span>
+  <span class="top-right">
+  <span class="contact-name">{{contact.name}}</span>
+  <span class="contact-info"><a href=""><img src="./assets/images/contact-icon-info.fw.png" alt=""></a></span></span></div>
+<!--Person info middle area-->
+<div class="person-body">
+  <div class="person-body-head">
+    <span class="person-media-image"><a href=""><img src="./assets/images/contact-icon-messenger.fw.png" alt=""></a></span>
+    <span class="person-setting"><a href=""><img src="./assets/images/contact-icon-setting.fw.png" alt=""></a></span></div>
+  <div class="person-picture"><img [src]="contact.picUrl" alt=""></div>
+  <div class="person-name"><p><b>{{contact.name}}</b></p></div>
+  <div class="person-location"><p>{{contact.location}}</p></div>
+</div>
+<!--Person info bottom area-->
+<div class="person-info">
+  <ul>
+    <li class="person-nickname"><span>Nickname:</span><span>{{contact.name}}</span></li>
+    <li class="person-phone"><span>Tel:</span><span>{{contact.phone}}</span></li>
+    <li class="person-birth-date"><span>Date Of Birth:</span><span>{{contact.birthDate}}</span></li>
+    <li class="person-gender"><span>Gender:</span><span>{{contact.gender}}</span></li>
+    <li class="person-language"><span>Language:</span><span>{{contact.language}}</span></li>
+  </ul>
+</div>

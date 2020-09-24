@@ -1,0 +1,88 @@
+<div class="grid-layout" id="grid-layout">
+  <!-- MEDIA MENU -->
+  <section class="media-nav" id="media-nav">
+    <ul><li class="image-menu"><a href=""><img  src="./assets/images/menu-icon.fw.png" alt=""></a></li>
+    <span class="media-icons">
+        <li [ngClass]="{'clicked-media':clickedMediaWhatsapp}" (click)="whatsappClicked()"><a href="javascript:void(0)"><img src="./assets/images/social-media-icons/whatsapp.fw.png" alt=""></a></li>
+        <li [ngClass]="{'clicked-media':clickedMediaMessenger}" (click)="messengerClicked()"><a href="javascript:void(0)"><img src="./assets/images/social-media-icons/messenger.fw.png" alt=""></a></li>
+        <li [ngClass]="{'clicked-media':clickedMediaPhone}" (click)="phoneClicked()"><a href="javascript:void(0)"><img src="./assets/images/social-media-icons/phone.fw.png" alt=""></a></li>
+        <li [ngClass]="{'clicked-media':clickedMediaSkype}" (click)="skypeClicked()"><a href="javascript:void(0)"><img src="./assets/images/social-media-icons/skype.fw.png" alt=""></a></li>
+        <li [ngClass]="{'clicked-media':clickedMediaN}" (click)="nClicked()"><a href="javascript:void(0)"><img src="./assets/images/social-media-icons/N.fw.png" alt=""></a></li></span>
+     </ul>
+ </section>
+  <!-- INBOX MENU -->
+  <section class="inbox-nav" id="inbox-nav">
+      <div class="inbox-title"><span class="inbox-text">Inbox</span> <a class="add-contact-button" href="">
+          <img src="./assets/images/add-contact-icon.fw.png" alt=""></a></div>
+      <ul>
+          <li class="links"> <div class="inbox-component-number" [routerLink]="['allMessages']" routerLinkActive="router-link-active" >
+            <span class="component-title">All Messages</span><span class="component-number">12</span></div></li>
+          <li class="links"> <div class="inbox-component-number"  [routerLink]="['unread']" routerLinkActive="router-link-active" >
+            <span class="component-title">Unread</span><span class="component-number">12</span></div></li>
+          <li class="links">  <div class="inbox-component-number"  [routerLink]="['important']" routerLinkActive="router-link-active" >
+            <span class="component-title">Important</span><span class="component-number">12</span></div></li>
+          <li class="links">  <div class="inbox-component-number"  [routerLink]="['drafts']" routerLinkActive="router-link-active" >
+            <span class="component-title">Drafts</span><span class="component-number">12</span></div></li>
+          <li> <div class="separator"></div></li>
+          <li class="links">  <div class="inbox-component-number"  [routerLink]="['teams']" routerLinkActive="router-link-active" >
+            <span class="component-title">Teams</span><span class="component-number">12</span></div></li>
+          <li class="links">  <div class="inbox-component-number"  [routerLink]="['groups']" routerLinkActive="router-link-active" >
+            <span class="component-title">Groups</span><span class="component-number">12</span></div></li>
+          <li class="links">  <div class="inbox-component-number"  [routerLink]="['channels']" routerLinkActive="router-link-active" >
+            <span class="component-title">Channels</span><span class="component-number">12</span></div></li>
+          <li class="links"> <div class="inbox-component-number"  [routerLink]="['locations']" routerLinkActive="router-link-active" >
+            <span class="component-title">Locations</span><span class="component-number">12</span></div></li>
+          <li class="links">  <div class="inbox-component-number"  [routerLink]="['media']" routerLinkActive="router-link-active" >
+            <span class="component-title">Media</span><span class="component-number">12</span></div></li>
+          <li> <div class="separator" ></div></li>
+          <li class="links"> <div class="inbox-component-number"  [routerLink]="['']" routerLinkActive="router-link-active" >Help</div></li>
+          <li class="links">  <div class="inbox-component-number"  [routerLink]="['']" routerLinkActive="router-link-active" >Settings</div></li>
+      </ul>
+  </section>
+
+  <!--CONTACT MENU-->
+  <section class="contact-nav" id="contact-nav">
+    <header class="contact-nav-header-area">
+      <div class="search-contact-bar"><input class="input" name="searh-contact" type="text" placeholder="Search"></div>
+      <div class="separator-contact-nav"></div></header>
+    <div class="contact-list">
+      <ul  *ngFor="let contact of contacts$ | async ">
+          <app-online-contact [contact]= "contact"  (changeContact)="clicked($event)"></app-online-contact>
+      </ul>
+    </div>
+  </section>
+
+  <!--Message display area-->
+  <section class="display-area" id="display-area">
+    <div class="grid">
+    <header class="header-part">
+      <span class="title-area"><span class="message-contant part"><b *ngIf="clickedContact">{{clickedContact.name}}</b> is typing</span></span>
+      <span class="option-area"><span class="vertical-separator"></span>
+      <img class="part" src="./assets/images/star.fw.png" alt="">
+      <span class="vertical-separator"></span>
+      <img class="part" src="./assets/images/phone.fw.png" alt="">
+      <span class="vertical-separator"></span>
+      <img class="part" src="./assets/images/camera.fw.png" alt=""></span>
+   </header>
+
+    <main class="message-area">
+      <ul *ngIf="clickedContact">
+        <app-send-message></app-send-message>
+        <app-incoming-message [contact]= "clickedContact" ></app-incoming-message>
+      </ul>
+    </main>
+
+    <footer class="bottom-part">
+      <span class="message-send"><input type="text" id="message-input-area" placeholder="Type your message"></span>
+      <span class="send-button">
+      </span>
+    </footer>
+    </div>
+  </section>
+
+  <section class="info-area" id="info-area">
+    <span *ngIf="clickedContact">
+      <app-contact-info [contact] = "clickedContact"></app-contact-info></span>
+  </section>
+
+ </div>

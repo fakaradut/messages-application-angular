@@ -1,0 +1,9 @@
+<span *ngFor="let message of messages ">
+<li class="message-order" >
+  <div class="incoming-message-box message-box">
+  <div class="message-info"><img class="person-pic" [src]="contact.picUrl" alt=""><span class="message-time">{{message.time}}</span></div>
+  <div class="message-content"><img class="message-box-part" src="./assets/images/message-box-incoming-part.fw.png" alt=""><div class="message-text">
+    {{message.message}}</div></div>
+</div></li>
+
+</span>

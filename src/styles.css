@@ -1,1 +1,715 @@
-/* You can add global styles to this file, and also import other style files */
+body,
+html {
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+ul {
+  padding-inline-start: 0px;
+}
+
+li:first {
+  margin-block-start: 2em;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Whole page's grid template */
+.grid-layout {
+  display: grid;
+  height: 100%;
+  width: 100%; /*         5% 15% 22% 36% 22%;*/
+  grid-template-columns: 3fr 15fr 24fr 36fr 22fr;
+  grid-template-rows: 1fr;
+}
+
+/* Media navigation*/
+.media-nav {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  min-width: 60px;
+  background-color: #1d2229;
+  padding-left: 10px;
+}
+.image-menu {
+  padding-top: 1.4em;
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+.media-icons img {
+  text-align: center;
+  padding-top: 0.8em;
+}
+
+.media-icons {
+  text-align: center;
+}
+
+.media-icons li {
+  margin: 1em 0em;
+}
+
+.media-nav .media-icons li:hover {
+  background-color: #272d35;
+  border-radius: 5%;
+  background-image: url(./assets/images/selected-social-media-icon.fw.png);
+}
+
+/* Inbox navigation */
+.inbox-nav {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  background: linear-gradient(#282f37, #1f252c);
+  min-width: 150px;
+  color: #ffffff;
+  border-right: 3px solid #1b2127;
+  padding: 0em 0.6em;
+}
+
+.inbox-title {
+  margin-bottom: 1.4em;
+  font-size: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 0.1em 0 0.5em;
+}
+
+.add-contact-button {
+  align-self: flex-end;
+}
+
+.inbox-nav .inbox-text {
+  display: inline-block;
+  font-size: 1.1em;
+  margin-block-start: 1em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.inbox-nav a img {
+  vertical-align: bottom;
+}
+
+.inbox-nav a img:hover {
+  background-color: #51565d;
+  border-radius: 50%;
+}
+
+.inbox-nav li {
+  color: #878c90;
+  padding: 0.5em 0.2em;
+}
+
+.inbox-nav .links:hover {
+  background-color: #353d45;
+  border-radius: 5%;
+  color: white;
+}
+
+.links .inbox-component-number {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0em 0.5em;
+}
+
+.links .component-number {
+  color: #f0f0f1;
+  font-size: 13px;
+}
+/* contacts separator */
+.inbox-nav .separator {
+  border-top: 3px solid #333a40;
+  margin-right: 0.5em;
+}
+
+/* Contact navigation menu */
+.contact-nav {
+  grid-column: 3/4;
+  grid-row: 1/2;
+  display: flex;
+  background-color: #293037;
+  flex-direction: column;
+  min-width: 236px;
+  max-height: 100vh;
+}
+
+.contact-nav ul {
+  margin-block-start: 0.5em;
+}
+
+/*customize contact  input bar*/
+.search-contact-bar .input {
+  background-color: #353c44;
+  background-image: url(./assets/images/question.fw.png);
+  background-repeat: no-repeat;
+  background-position: 5% center;
+  padding-left: 10%;
+  margin-top: 1.1em;
+  margin-left: 5%;
+  width: 80%;
+  line-height: 30px;
+  border-radius: 50px;
+  border-color: transparent;
+  outline: none;
+  color: #84898f;
+}
+/* search bar and contact area separator*/
+.separator-contact-nav {
+  border-top: 3px solid #333a40;
+  width: 100%;
+  margin-top: 0.7em;
+  margin-bottom: 1em;
+}
+
+/*contacts separator*/
+.separator-contact {
+  border-top: 3px solid #333a40;
+  margin-left: 7%;
+  width: 3.5em;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.contact-nav .contact-list {
+  overflow: auto;
+}
+
+/* Custom scrollbar*/
+.contact-nav .contact-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.contact-nav .contact-list::-webkit-scrollbar-track {
+  background: linear-gradient(to top, hsl(187, 98%, 24%), rgb(221, 221, 161));
+}
+
+.contact-nav .contact-list::-webkit-scrollbar-thumb {
+  background: linear-gradient(to top, rgb(98, 39, 235), rgb(221, 221, 161));
+}
+
+.contact-nav .contact-list::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to top, rgb(182, 194, 71), rgb(52, 212, 79));
+}
+
+.contact-nav .contact-item {
+  color: #ffffff;
+  display: flex;
+  margin: 0 8%;
+}
+
+.contact-nav .contact-message-info {
+  width: 80%;
+  margin-left: 2%;
+  align-self: center;
+  margin-top: 1em;
+}
+
+.first-line {
+  margin-bottom: 0.3em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.second-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* position of online symbol */
+.contact-item .online {
+  position: relative;
+  top: 5px;
+  right: 10px;
+}
+
+.contact-name {
+  color: #fff;
+  font-size: 14px;
+}
+
+.contact-last-message {
+  color: #6e737e;
+  font-size: 12px;
+}
+
+.contact-nav .contact-last-message-time {
+  font-size: 9px;
+  color: #6e737e;
+  margin-top: 4px;
+}
+
+/* Hover contact */
+.contact-nav .contact:hover {
+  border-left: 3px solid #2a7fff;
+}
+
+/* Display area's css */
+.display-area {
+  grid-column: 4/5;
+  grid-row: 1/2;
+  background-color: #eef3f7;
+  border-right: 3px solid #d5e8f7;
+  min-width: 300px;
+}
+
+.display-area .grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 9vh 86vh 4vh;
+}
+.display-area header {
+  grid-row: 1/2;
+  grid-column: 1/2;
+}
+.display-area main {
+  grid-row: 2/3;
+  grid-column: 1/2;
+}
+.display-area footer {
+  grid-row: 3/4;
+  grid-column: 1/2;
+}
+
+.display-area .message-contant {
+  padding-left: 5%;
+  position: relative;
+  top: 20px;
+  font-size: 13px;
+}
+
+.display-area .part {
+  margin-bottom: 1.2em;
+  cursor: pointer;
+}
+
+.display-area .header-part {
+  border-bottom: 2px solid #dadbde;
+  position: relative;
+  height: 3.8em;
+}
+
+.display-area .vertical-separator {
+  border-left: 2px solid #dadbde;
+  padding-right: 10px;
+  margin-left: 10px;
+  height: 3.7em;
+  display: inline-block;
+}
+
+.display-area .title-area {
+  margin-bottom: 1.2em;
+}
+
+.display-area .option-area {
+  float: right;
+  margin-right: 1em;
+}
+
+/* Message display area'*/
+.display-area .message-area {
+  border-bottom: 2px solid #c6c8d1;
+  overflow: auto;
+  padding: 0em 1em;
+  line-height: 20px;
+}
+
+/* Custom scrollbar*/
+.display-area .message-area::-webkit-scrollbar {
+  width: 5px;
+}
+
+.display-area .message-area::-webkit-scrollbar-track {
+  background: linear-gradient(to top, hsl(187, 98%, 24%), rgb(221, 221, 161));
+}
+
+.display-area .message-area::-webkit-scrollbar-thumb {
+  background: linear-gradient(to top, rgb(98, 39, 235), rgb(221, 221, 161));
+}
+
+.display-area .message-area::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to top, rgb(182, 194, 71), rgb(52, 212, 79));
+}
+
+/*Message box*/
+.display-area .message-area ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.display-area .message-area .message-order {
+  margin-bottom: 1em;
+}
+
+.display-area .message-area .message-box {
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+}
+
+.display-area .message-area .message-info {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.display-area .message-area .message-time {
+  color: black;
+  font-size: 11px;
+  font-weight: 500;
+  align-self: center;
+  color: #606264;
+}
+
+.display-area .message-area .message-content {
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+  justify-content: center;
+  width: fit-content;
+  height: fit-content;
+  align-self: center;
+}
+
+.display-area .message-area .send-message-box {
+  justify-content: flex-end;
+}
+
+.display-area .message-area .incoming-message-box {
+  justify-content: flex-start;
+}
+
+.display-area .message-area .incoming-message-box .message-content {
+  margin-left: 0.8em;
+}
+
+.display-area .message-area .send-message-box .message-content {
+  margin-right: 0.8em;
+}
+
+.display-area .message-area .incoming-message-box .message-text {
+  color: #000;
+  background-color: #fff;
+  padding: 0.8em;
+  border-radius: 2px;
+  max-width: 100%;
+}
+
+.display-area .message-area .send-message-box .message-text {
+  background-color: #0083ff;
+  color: #fff;
+  padding: 0.8em;
+  border-radius: 2px;
+}
+
+.display-area .message-area .message-box-part {
+  align-self: center;
+}
+
+.display-area .message-send {
+  width: 100%;
+  background-color: #fff;
+  height: 2em;
+}
+
+.bottom-part {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#message-input-area {
+  background-color: #fbfcfc;
+  background-image: url(./assets/images/attachment.fw.png);
+  background-repeat: no-repeat;
+  background-position: 2% center;
+  padding-left: 50px;
+  line-height: 2em;
+  border-color: #ffffff;
+  width: 90%;
+  border: 2px solid #fff;
+  outline: none;
+}
+
+.send-button {
+  background-color: #606c7a;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  background-image: url(./assets/images/arrow.fw.png);
+  background-repeat: no-repeat;
+  background-position: 6px;
+  cursor: pointer;
+  position: relative;
+  top: 2px;
+  right: 2px;
+}
+
+/* PERSON INFO AREA */
+.info-area {
+  grid-column: 5/6;
+  grid-row: 1/2;
+  background-color: #ffffff;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 5em 17em 15em;
+  min-width: 123px;
+}
+
+.info-area .top {
+  grid-row: 1/2;
+  grid-column: 1/2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 2px solid #e6e6e6;
+  height: 3.8em;
+  padding: 0 2% 0 5%;
+  align-items: center;
+}
+
+.info-area .top-left {
+  vertical-align: top;
+  position: relative;
+  display: inherit;
+}
+
+.info-area .contact-name {
+  color: #000;
+}
+
+.top .top-left .online {
+  position: relative;
+  bottom: 15px;
+}
+
+.info-area .person-body {
+  grid-row: 2/3;
+  grid-column: 1/2;
+  border-bottom: 3px solid #e6e6e6;
+}
+
+.info-area .person-info {
+  grid-row: 3/4;
+  grid-column: 1/2;
+}
+
+.info-area .person-body-head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 5% 1em 5%;
+}
+
+.person-body .person-setting {
+  position: relative;
+  bottom: 4px;
+}
+
+.info-area .person-picture {
+  text-align: center;
+}
+
+.info-area .person-name {
+  text-align: center;
+  margin-bottom: 1em;
+}
+.info-area .person-location p {
+  font-size: 12px;
+  color: #a19f9f;
+  text-align: center;
+}
+
+.info-area .person-info ul li {
+  border-bottom: 2px solid #e6e6e6;
+  margin: 5px 10%;
+  padding-bottom: 10px;
+  font-size: 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* Custom adjsutment For differenet size of screen and other devices*/
+
+@media only screen and (max-width: 1020px) {
+  .grid-layout {
+    grid-template-columns: 3fr 15fr 24fr 36fr;
+    grid-template-rows: 60fr 40fr;
+  }
+
+  .media-nav {
+    grid-row: 1/3;
+    grid-column: 1/2;
+  }
+
+  .inbox-nav {
+    grid-row: 1/3;
+    grid-column: 2/3;
+  }
+
+  .contact-nav {
+    grid-row: 1/2;
+    grid-column: 3/4;
+  }
+
+  .display-area {
+    grid-row: 1/3;
+    grid-column: 4/5;
+  }
+
+  .info-area {
+    grid-row: 2/3;
+    grid-column: 3/4;
+    grid-template-rows: 2.3em 17em 12em;
+    border: 1px solid #0083ff;
+  }
+
+  .info-area .top {
+    height: 2.3em;
+  }
+
+  .info-area .person-body {
+    align-self: center;
+  }
+}
+
+@media only screen and (max-width: 810px) {
+  .grid-layout {
+    grid-template-rows: 29.1em 18em;
+    grid-template-columns: 3fr 15fr 24fr 15fr;
+  }
+  .media-nav {
+    grid-row: 1/2;
+    grid-column: 1/2;
+  }
+  .inbox-nav {
+    grid-row: 1/2;
+    grid-column: 2/3;
+  }
+  .contact-nav {
+    grid-row: 1/2;
+    grid-column: 3/4;
+  }
+  .info-area {
+    grid-row: 1/2;
+    grid-column: 4/5;
+    grid-template-rows: 2.3em 17em 9.5em;
+  }
+  .display-area {
+    grid-row: 2/3;
+    grid-column: 1/5;
+    height: 16em;
+  }
+
+  .inbox-nav li {
+    padding: 0.2em;
+  }
+  .person-info ul {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-block-start: 0em;
+  }
+
+  .display-area .grid {
+    grid-template-rows: 3em 11em 2em;
+  }
+  .display-area .header-part {
+    height: 3em;
+  }
+  .display-area .vertical-separator {
+    height: 3em;
+  }
+  .display-area .part {
+    align-self: center;
+  }
+}
+
+@media only screen and (max-width: 620px) {
+  .grid-layout {
+    grid-template-columns: 1fr;
+    /*5% 15% 22% 36% 22%;*/
+    grid-template-rows: 5fr 15fr 22fr 36fr 22fr;
+  }
+
+  .media-nav {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    height: 4.5em;
+  }
+
+  .media-nav .image-menu {
+    padding-top: 2.4em;
+  }
+
+  .media-nav ul,
+  .media-icons {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .media-nav li {
+    margin-right: 1.2em;
+  }
+
+  .inbox-nav {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    background-color: #282e36;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    padding: 0em 2em;
+  }
+  .contact-nav {
+    grid-column: 1/2;
+    grid-row: 3/4;
+    max-height: 40vh;
+  }
+  .display-area {
+    grid-column: 1/2;
+    grid-row: 4/5;
+  }
+  .info-area {
+    grid-column: 1/2;
+    grid-row: 5/6;
+  }
+
+  .search-contact-bar .input {
+    padding-left: 50px;
+  }
+
+  .inbox-title {
+    justify-content: space-between;
+  }
+
+  .inbox-nav .separator {
+    margin-right: 10%;
+  }
+
+  .first-line {
+    margin-left: 5%;
+  }
+}

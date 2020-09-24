@@ -1,0 +1,20 @@
+
+   <!--CONTACT SAMPLE-->
+   <li class="contact" (click)="clicked()"><div class="contact-item">
+    <span class="contact-status-picture">
+      <!--contact online image-->
+      <img *ngIf='contact.isOnline'  class="online" src="./assets/images/online.fw.png" alt="">
+      <!--contact picture-->
+      <img [src]="contact.picUrl" alt=""></span>
+    <span class="contact-message-info">
+      <div class="first-line">
+      <!--contact name-->
+      <span class="contact-name">{{contact.name}}</span>
+      <!--person's contact  option-->
+      <a href=""><img class="contact-option-button" src="./assets/images/contact-option.fw.png" alt=""></a> </div>
+      <div class="second-line"><!--contact last send message-->
+      <span class="contact-last-message">{{messageThumb}} </span>
+      <!--contact last message time-->
+    <span class="contact-last-message-time">{{message['time']}} min</span></div></span> </div>
+  </li>
+  <li><div class="separator-contact"></div></li>
