@@ -1,5 +1,5 @@
 import { Message } from '../../core/models/message';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Contact } from 'src/app/core/models/contact';
@@ -10,7 +10,7 @@ import { MessageService } from 'src/app/core/services/message.service';
   templateUrl: './incoming-message.component.html',
   styleUrls: ['./incoming-message.component.css']
 })
-export class IncomingMessageComponent implements OnInit {
+export class IncomingMessageComponent implements OnChanges {
 
   @Input()
   contact: Contact;
@@ -21,7 +21,7 @@ export class IncomingMessageComponent implements OnInit {
     private messageService: MessageService
   ) { }
 
-  ngOnInit(): void {
+  ngOnChanges(): void {
     this.messages = null;
     console.log('HELLO WORLD!')
     this.messageService.getMessages()
